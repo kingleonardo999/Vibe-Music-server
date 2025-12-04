@@ -1,0 +1,79 @@
+app:
+  name: Vibe Music
+  version: 1.0.0
+  port: 8080
+  ssl: false # 是否启用 SSL
+  cert: YOUR_SSL_CERT_PATH # 如果启用 SSL, 请提供证书路径
+  key: YOUR_SSL_KEY_PATH # 如果启用 SSL, 请提供证书路径
+  cors:
+    allow-origins:
+      - "localhost" # 允许的来源，可以根据需要进行修改
+    allow-methods:
+      - "GET"
+      - "POST"
+      - "PUT"
+      - "PATCH"
+      - "DELETE"
+      - "OPTIONS"
+    allow-headers:
+      - "Authorization"
+      - "Content-Type"
+    expose-headers:
+      - "Authorization"
+    allow-credentials: true
+    max-age: 3600
+
+# 配置数据源
+database:
+  driver: mysql
+  host: YOUR_DB_HOST
+  port: YOUR_DB_PORT
+  name: YOUR_DB_NAME
+  username: YOUR_DB_USERNAME
+  password: YOUR_DB_PASSWORD
+
+# Redis服务连接配置
+redis:
+  database: 1
+  host: YOUR_REDIS_HOST
+  port: YOUR_REDIS_PORT
+  password: YOUR_REDIS_PASSWORD
+  time-to-live: 60 # 10分钟, 单位为秒
+
+minio:
+  endpoint: YOUR_MINIO_ENDPOINT # 修改你的 MinIO 服务器地址, 例如 http://localhost:9090
+  accessKey: YOUR_MINIO_ACCESS_KEY # 修改你的 MinIO Access Key
+  secretKey: YOUR_MINIO_SECRET_KEY # 修改你的 MinIO Secret Key
+  bucket: BUCKET_NAME # 确认 Bucket 名称与你创建的一致
+  useSSL: false # 如果 MinIO 使用 SSL 则设置为 true
+
+# 配置邮件服务
+mail:
+  # 配置邮箱账户和密码
+  host: YOUR_SMTP_HOST # 修改你的 SMTP 服务器地址
+  port: YOUR_SMTP_PORT # 465(SSL) 或 587(STARTTLS)
+  user: YOUR_EMAIL_ADDRESS # 修改你的邮箱账号
+  password: YOUR_EMAIL_PASSWORD # 修改你的邮箱应用密码或授权码
+  ssl: true # true=SSL 465，false=STARTTLS 587
+  timeout: 5000 # 毫秒，建立连接超时
+  sender-name: Vibe Music # 发件人名称
+
+
+# 定义角色和路径权限的映射关系
+role-path-permissions:
+  permissions:
+    ROLE_ADMIN:
+      - "/admin/"
+    ROLE_USER:
+      - "/user/"
+      - "/playlist/"
+      - "/artist/"
+      - "/song/"
+      - "/favorite/"
+      - "/comment/"
+      - "/banner/"
+      - "/feedback/"
+
+jwt:
+  secret: YOUR_JWT_SECRET # 修改为你的 JWT 密钥
+  expiration: 720 # 12 小时, 单位为分钟

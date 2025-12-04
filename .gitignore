@@ -1,0 +1,19 @@
+.idea
+
+logs
+
+config/config.yml
+
+# 编译后的二进制文件
+vibe-music-server
+vibe-music-server.exe
+
+# 环境变量文件
+.env
+
+# 测试覆盖率文件
+coverage.out
+*.out
+
+# VSCode 编辑器配置
+.vscode/

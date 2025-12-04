@@ -1,0 +1,4849 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "默认模块",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/admin/register": {
+      "post": {
+        "summary": "注册管理员",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminDTO",
+                "description": "管理员信息"
+              },
+              "example": {
+                "username": "admin",
+                "password": "admin123456"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "summary": "登录管理员",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminDTO",
+                "description": "管理员信息"
+              },
+              "example": {
+                "username": "admin",
+                "password": "admin123456"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/logout": {
+      "post": {
+        "summary": "登出",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "认证token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllUsersCount": {
+      "get": {
+        "summary": "获取所有用户数量",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultLong",
+                  "description": "用户数量"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": 0
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllUsers": {
+      "post": {
+        "summary": "获取所有用户信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserSearchDTO",
+                "description": "用户搜索条件"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultUserManagementVO",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "userId": 0,
+                        "username": "",
+                        "phone": "",
+                        "email": "",
+                        "userAvatar": "",
+                        "introduction": "",
+                        "createTime": "",
+                        "updateTime": "",
+                        "userStatus": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/addUser": {
+      "post": {
+        "summary": "新增用户",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserAddDTO",
+                "description": "用户注册信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateUser": {
+      "put": {
+        "summary": "更新用户信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDTO",
+                "description": "用户信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateUserStatus/{id}/{status}": {
+      "patch": {
+        "summary": "更新用户状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "用户id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "description": "用户状态",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteUser/{id}": {
+      "delete": {
+        "summary": "删除用户",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "用户id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteUsers": {
+      "delete": {
+        "summary": "批量删除用户",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "用户id列表"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllArtistsCount": {
+      "get": {
+        "summary": "获取所有歌手数量",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "性别",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "地区",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultLong",
+                  "description": "歌手数量"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": 0
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllArtists": {
+      "post": {
+        "summary": "获取所有歌手信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArtistDTO",
+                "description": "歌手搜索条件"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultArtist",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "artistId": 0,
+                        "artistName": "",
+                        "gender": 0,
+                        "avatar": "",
+                        "birth": "",
+                        "area": "",
+                        "introduction": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/addArtist": {
+      "post": {
+        "summary": "新增歌手",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArtistAddDTO",
+                "description": "歌手信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateArtist": {
+      "put": {
+        "summary": "更新歌手信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArtistUpdateDTO",
+                "description": "歌手信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateArtistAvatar/{id}": {
+      "patch": {
+        "summary": "更新歌手头像",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌手id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "description": "头像",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "avatar"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteArtist/{id}": {
+      "delete": {
+        "summary": "删除歌手",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌手id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteArtists": {
+      "delete": {
+        "summary": "批量删除歌手",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "歌手id列表"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllSongsCount": {
+      "get": {
+        "summary": "获取所有歌曲的数量",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "style",
+            "in": "query",
+            "description": "歌曲风格",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultLong",
+                  "description": "歌曲数量"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": 0
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllArtistNames": {
+      "get": {
+        "summary": "获取所有歌手id和名称",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultListArtistNameVO",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": [
+                    {
+                      "artistId": 0,
+                      "artistName": ""
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllSongsByArtist": {
+      "post": {
+        "summary": "根据歌手id获取其歌曲信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SongAndArtistDTO",
+                "description": "歌曲搜索条件"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultSongAdminVO",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "songId": 0,
+                        "artistName": "",
+                        "songName": "",
+                        "album": "",
+                        "lyric": "",
+                        "duration": "",
+                        "style": "",
+                        "coverUrl": "",
+                        "audioUrl": "",
+                        "releaseTime": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/addSong": {
+      "post": {
+        "summary": "添加歌曲信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SongAddDTO",
+                "description": "歌曲信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateSong": {
+      "put": {
+        "summary": "修改歌曲信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SongUpdateDTO",
+                "description": "歌曲信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateSongCover/{id}": {
+      "patch": {
+        "summary": "更新歌曲封面",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌曲id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cover": {
+                    "description": "封面",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "cover"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateSongAudio/{id}": {
+      "patch": {
+        "summary": "更新歌曲音频",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌曲id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "audio": {
+                    "description": "音频",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "audio"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteSong/{id}": {
+      "delete": {
+        "summary": "删除歌曲",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌曲id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteSongs": {
+      "delete": {
+        "summary": "批量删除歌曲",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "歌曲id列表"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllPlaylistsCount": {
+      "get": {
+        "summary": "获取所有歌单数量",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "style",
+            "in": "query",
+            "description": "歌单风格",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultLong",
+                  "description": "歌单数量"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": 0
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllPlaylists": {
+      "post": {
+        "summary": "获取所有歌单信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaylistDTO",
+                "description": "歌单搜索条件"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultPlaylist",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "playlistId": 0,
+                        "title": "",
+                        "coverUrl": "",
+                        "introduction": "",
+                        "style": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/addPlaylist": {
+      "post": {
+        "summary": "新增歌单",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaylistAddDTO",
+                "description": "歌单信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updatePlaylist": {
+      "put": {
+        "summary": "更新歌单信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaylistUpdateDTO",
+                "description": "歌单信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updatePlaylistCover/{id}": {
+      "patch": {
+        "summary": "更新歌单封面",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌单id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cover": {
+                    "description": "封面",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "cover"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deletePlaylist/{id}": {
+      "delete": {
+        "summary": "删除歌单",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌单id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deletePlaylists": {
+      "delete": {
+        "summary": "批量删除歌单",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "歌单id列表"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/artist/getAllArtists": {
+      "post": {
+        "summary": "获取所有歌手列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArtistDTO",
+                "description": "artistDTO"
+              },
+              "example": {
+                "pageNum": 2,
+                "pageSize": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultArtistVO",
+                  "description": "歌手列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "artistId": 0,
+                        "artistName": "",
+                        "avatar": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/artist/getRandomArtists": {
+      "get": {
+        "summary": "获取随机歌手",
+        "deprecated": false,
+        "description": "随机歌手的数量为 10",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultListArtistVO",
+                  "description": "随机歌手列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": [
+                    {
+                      "artistId": 0,
+                      "artistName": "",
+                      "avatar": ""
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/artist/getArtistDetail/{id}": {
+      "get": {
+        "summary": "获取歌手详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌手id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultArtistDetailVO",
+                  "description": "歌手详情"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "artistId": 0,
+                    "artistName": "",
+                    "gender": 0,
+                    "avatar": "",
+                    "birth": "",
+                    "area": "",
+                    "introduction": "",
+                    "songs": [
+                      {
+                        "songId": 0,
+                        "songName": "",
+                        "artistName": "",
+                        "album": "",
+                        "duration": "",
+                        "coverUrl": "",
+                        "audioUrl": "",
+                        "likeStatus": 0,
+                        "releaseTime": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllBanners": {
+      "post": {
+        "summary": "获取轮播图列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BannerDTO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultBanner",
+                  "description": "轮播图列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "bannerId": 0,
+                        "bannerUrl": "",
+                        "bannerStatus": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/addBanner": {
+      "post": {
+        "summary": "添加轮播图",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "banner": {
+                    "description": "轮播图",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "banner"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateBanner/{id}": {
+      "patch": {
+        "summary": "更新轮播图",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "banner": {
+                    "description": "轮播图",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "banner"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/updateBannerStatus/{id}": {
+      "patch": {
+        "summary": "更新轮播图状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "轮播图状态",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteBanner/{id}": {
+      "delete": {
+        "summary": "删除轮播图",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "轮播图id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteBanners": {
+      "delete": {
+        "summary": "批量删除轮播图",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "轮播图id列表"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/banner/getBannerList": {
+      "get": {
+        "summary": "获取轮播图列表（用户端）",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultListBannerVO",
+                  "description": "轮播图列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": [
+                    {
+                      "bannerId": 0,
+                      "bannerUrl": ""
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/comment/addSongComment": {
+      "post": {
+        "summary": "新增歌曲评论",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentSongDTO",
+                "description": "评论信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/comment/addPlaylistComment": {
+      "post": {
+        "summary": "新增歌单评论",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentPlaylistDTO",
+                "description": "评论信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/comment/likeComment/{id}": {
+      "patch": {
+        "summary": "点赞评论",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "评论id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/comment/cancelLikeComment/{id}": {
+      "patch": {
+        "summary": "取消点赞评论",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "评论id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/comment/deleteComment/{id}": {
+      "delete": {
+        "summary": "删除评论",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "评论id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/getAllFeedbacks": {
+      "post": {
+        "summary": "获取反馈列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeedbackDTO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultFeedback",
+                  "description": "反馈列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "feedbackId": 0,
+                        "userId": 0,
+                        "feedback": "",
+                        "createTime": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteFeedback/{id}": {
+      "delete": {
+        "summary": "删除反馈",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "反馈id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/admin/deleteFeedbacks": {
+      "delete": {
+        "summary": "批量删除反馈",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "反馈id列表"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/feedback/addFeedback": {
+      "post": {
+        "summary": "添加反馈",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "content",
+            "in": "query",
+            "description": "反馈内容",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/playlist/getAllPlaylists": {
+      "post": {
+        "summary": "获取所有歌单",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaylistDTO",
+                "description": "playlistDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultPlaylistVO",
+                  "description": "歌单列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "playlistId": 0,
+                        "title": "",
+                        "coverUrl": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/playlist/getRecommendedPlaylists": {
+      "get": {
+        "summary": "获取推荐歌单",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultListPlaylistVO",
+                  "description": "推荐歌单列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": [
+                    {
+                      "playlistId": 0,
+                      "title": "",
+                      "coverUrl": ""
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/playlist/getPlaylistDetail/{id}": {
+      "get": {
+        "summary": "获取歌单详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌单id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPlaylistDetailVO",
+                  "description": "歌单详情"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "playlistId": 0,
+                    "title": "",
+                    "coverUrl": "",
+                    "introduction": "",
+                    "songs": [
+                      {
+                        "songId": 0,
+                        "songName": "",
+                        "artistName": "",
+                        "album": "",
+                        "duration": "",
+                        "coverUrl": "",
+                        "audioUrl": "",
+                        "likeStatus": 0,
+                        "releaseTime": ""
+                      }
+                    ],
+                    "likeStatus": 0,
+                    "comments": [
+                      {
+                        "commentId": 0,
+                        "username": "",
+                        "userAvatar": "",
+                        "content": "",
+                        "createTime": "",
+                        "likeCount": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/song/getAllSongs": {
+      "post": {
+        "summary": "获取所有歌曲",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SongDTO",
+                "description": "songDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultSongVO",
+                  "description": "歌曲列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "songId": 0,
+                        "songName": "",
+                        "artistName": "",
+                        "album": "",
+                        "duration": "",
+                        "coverUrl": "",
+                        "audioUrl": "",
+                        "likeStatus": 0,
+                        "releaseTime": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/song/getRecommendedSongs": {
+      "get": {
+        "summary": "获取推荐歌曲",
+        "deprecated": false,
+        "description": "推荐歌曲的数量为 20",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultListSongVO",
+                  "description": "推荐歌曲列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": [
+                    {
+                      "songId": 0,
+                      "songName": "",
+                      "artistName": "",
+                      "album": "",
+                      "duration": "",
+                      "coverUrl": "",
+                      "audioUrl": "",
+                      "likeStatus": 0,
+                      "releaseTime": ""
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/song/getSongDetail/{id}": {
+      "get": {
+        "summary": "获取歌曲详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "歌曲id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultSongDetailVO",
+                  "description": "歌曲详情"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "songId": 0,
+                    "songName": "",
+                    "artistName": "",
+                    "album": "",
+                    "lyric": "",
+                    "duration": "",
+                    "coverUrl": "",
+                    "audioUrl": "",
+                    "releaseTime": "",
+                    "likeStatus": 0,
+                    "comments": [
+                      {
+                        "commentId": 0,
+                        "username": "",
+                        "userAvatar": "",
+                        "content": "",
+                        "createTime": "",
+                        "likeCount": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/sendVerificationCode": {
+      "get": {
+        "summary": "发送验证码",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "邮箱",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/register": {
+      "post": {
+        "summary": "注册",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegisterDTO",
+                "description": "用户注册信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/login": {
+      "post": {
+        "summary": "登录",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginDTO",
+                "description": "用户登录信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/getUserInfo": {
+      "get": {
+        "summary": "获取用户信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultUserVO",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "userId": 0,
+                    "username": "",
+                    "phone": "",
+                    "email": "",
+                    "userAvatar": "",
+                    "introduction": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/updateUserInfo": {
+      "put": {
+        "summary": "更新用户信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDTO",
+                "description": "用户信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/updateUserAvatar": {
+      "patch": {
+        "summary": "更新用户头像",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "description": "头像",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "avatar"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/updateUserPassword": {
+      "patch": {
+        "summary": "更新用户密码",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "认证token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPasswordDTO",
+                "description": "用户密码信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/resetUserPassword": {
+      "patch": {
+        "summary": "重置用户密码",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserResetPasswordDTO",
+                "description": "用户密码信息"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": null,
+                  "message": null,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "summary": "登出",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "认证token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/user/deleteAccount": {
+      "delete": {
+        "summary": "注销账号",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/favorite/getFavoriteSongs": {
+      "post": {
+        "summary": "获取用户收藏的歌曲列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SongDTO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultSongVO",
+                  "description": "用户收藏的歌曲列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "songId": 0,
+                        "songName": "",
+                        "artistName": "",
+                        "album": "",
+                        "duration": "",
+                        "coverUrl": "",
+                        "audioUrl": "",
+                        "likeStatus": 0,
+                        "releaseTime": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/favorite/collectSong": {
+      "post": {
+        "summary": "收藏歌曲",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "songId",
+            "in": "query",
+            "description": "歌曲id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "收藏结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/favorite/cancelCollectSong": {
+      "delete": {
+        "summary": "取消收藏歌曲",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "songId",
+            "in": "query",
+            "description": "歌曲id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "取消收藏结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/favorite/getFavoritePlaylists": {
+      "post": {
+        "summary": "获取用户收藏的歌单列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaylistDTO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageResultPlaylistVO",
+                  "description": "用户收藏的歌单列表"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {
+                    "total": 0,
+                    "items": [
+                      {
+                        "playlistId": 0,
+                        "title": "",
+                        "coverUrl": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/favorite/collectPlaylist": {
+      "post": {
+        "summary": "收藏歌单",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "playlistId",
+            "in": "query",
+            "description": "歌单id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "收藏结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/favorite/cancelCollectPlaylist": {
+      "delete": {
+        "summary": "取消收藏歌单",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "playlistId",
+            "in": "query",
+            "description": "歌单id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result",
+                  "description": "取消收藏结果"
+                },
+                "example": {
+                  "code": 0,
+                  "message": "",
+                  "data": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdminDTO": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "管理员用户名\n用户名格式：4-16位字符（字母、数字、下划线、连字符）",
+            "pattern": "^[a-zA-Z0-9_-]{4,16}$"
+          },
+          "password": {
+            "type": "string",
+            "description": "管理员密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "UserManagementVO": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "用户 id",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string",
+            "description": "用户名"
+          },
+          "phone": {
+            "type": "string",
+            "description": "用户手机号"
+          },
+          "email": {
+            "type": "string",
+            "description": "用户邮箱"
+          },
+          "userAvatar": {
+            "type": "string",
+            "description": "用户头像"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "用户简介"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "用户创建时间"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "用户修改时间"
+          },
+          "userStatus": {
+            "type": "string",
+            "description": "用户状态：0-启用，1-禁用",
+            "enum": [
+              "ENABLE",
+              "DISABLE"
+            ]
+          }
+        }
+      },
+      "PageResultUserManagementVO": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserManagementVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.UserManagementVO"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultUserManagementVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultUserManagementVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "UserSearchDTO": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量"
+          },
+          "username": {
+            "type": "string",
+            "description": "用户名"
+          },
+          "phone": {
+            "type": "string",
+            "description": "用户手机号"
+          },
+          "userStatus": {
+            "type": "string",
+            "description": "用户状态：0-启用，1-禁用",
+            "enum": [
+              "ENABLE",
+              "DISABLE"
+            ]
+          }
+        },
+        "required": [
+          "pageNum",
+          "pageSize"
+        ]
+      },
+      "UserAddDTO": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "用户名\n用户名格式：4-16位字符（字母、数字、下划线、连字符）",
+            "pattern": "^[a-zA-Z0-9_-]{4,16}$"
+          },
+          "password": {
+            "type": "string",
+            "description": "用户密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          },
+          "phone": {
+            "type": "string",
+            "description": "用户手机号\n手机号格式：1开头，11位数字",
+            "pattern": "^1[3456789]\\d{9}$"
+          },
+          "email": {
+            "type": "string",
+            "description": "用户邮箱",
+            "format": "email"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "用户简介\n用户简介格式：100 字以内",
+            "pattern": "^.{0,100}$"
+          },
+          "userStatus": {
+            "type": "string",
+            "description": "用户状态：0-启用，1-禁用",
+            "enum": [
+              "ENABLE",
+              "DISABLE"
+            ]
+          }
+        },
+        "required": [
+          "username",
+          "password",
+          "email"
+        ]
+      },
+      "Artist": {
+        "type": "object",
+        "properties": {
+          "artistId": {
+            "type": "integer",
+            "description": "歌手 id",
+            "format": "int64"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手姓名"
+          },
+          "gender": {
+            "type": "integer",
+            "description": "歌手性别：0-男，1-女"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "歌手头像"
+          },
+          "birth": {
+            "type": "string",
+            "description": "歌手出生日期"
+          },
+          "area": {
+            "type": "string",
+            "description": "歌手所处地区"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌手简介"
+          }
+        }
+      },
+      "PageResultArtist": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Artist",
+              "description": "<p>\n\n</p>"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultArtist": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultArtist",
+            "description": "响应数据"
+          }
+        }
+      },
+      "ArtistAddDTO": {
+        "type": "object",
+        "properties": {
+          "artistName": {
+            "type": "string",
+            "description": "歌手姓名"
+          },
+          "gender": {
+            "type": "integer",
+            "description": "歌手性别：0-男，1-女"
+          },
+          "birth": {
+            "type": "string",
+            "description": "歌手出生日期"
+          },
+          "area": {
+            "type": "string",
+            "description": "歌手所处地区"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌手简介"
+          }
+        }
+      },
+      "ArtistUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "artistId": {
+            "type": "integer",
+            "description": "歌手 id",
+            "format": "int64"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手姓名"
+          },
+          "gender": {
+            "type": "integer",
+            "description": "歌手性别：0-男，1-女"
+          },
+          "birth": {
+            "type": "string",
+            "description": "歌手出生日期"
+          },
+          "area": {
+            "type": "string",
+            "description": "歌手所处地区"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌手简介"
+          }
+        }
+      },
+      "ArtistNameVO": {
+        "type": "object",
+        "properties": {
+          "artistId": {
+            "type": "integer",
+            "description": "歌手 id",
+            "format": "int64"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手姓名"
+          }
+        }
+      },
+      "ResultListArtistNameVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArtistNameVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.ArtistNameVO"
+            },
+            "description": "响应数据"
+          }
+        }
+      },
+      "SongAdminVO": {
+        "type": "object",
+        "properties": {
+          "songId": {
+            "type": "integer",
+            "description": "歌曲 id",
+            "format": "int64"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手"
+          },
+          "songName": {
+            "type": "string",
+            "description": "歌名"
+          },
+          "album": {
+            "type": "string",
+            "description": "专辑"
+          },
+          "lyric": {
+            "type": "string",
+            "description": "歌词"
+          },
+          "duration": {
+            "type": "string",
+            "description": "歌曲时长"
+          },
+          "style": {
+            "type": "string",
+            "description": "歌曲风格"
+          },
+          "coverUrl": {
+            "type": "string",
+            "description": "歌曲封面 url"
+          },
+          "audioUrl": {
+            "type": "string",
+            "description": "歌曲 url"
+          },
+          "releaseTime": {
+            "type": "string",
+            "description": "歌曲发行时间"
+          }
+        }
+      },
+      "PageResultSongAdminVO": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SongAdminVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.SongAdminVO"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultSongAdminVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultSongAdminVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "SongAndArtistDTO": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量"
+          },
+          "artistId": {
+            "type": "integer",
+            "description": "歌手",
+            "format": "int64"
+          },
+          "songName": {
+            "type": "string",
+            "description": "歌曲名"
+          },
+          "album": {
+            "type": "string",
+            "description": "专辑"
+          }
+        },
+        "required": [
+          "pageNum",
+          "pageSize"
+        ]
+      },
+      "SongAddDTO": {
+        "type": "object",
+        "properties": {
+          "artistId": {
+            "type": "integer",
+            "description": "歌手 id",
+            "format": "int64"
+          },
+          "songName": {
+            "type": "string",
+            "description": "歌名"
+          },
+          "album": {
+            "type": "string",
+            "description": "专辑"
+          },
+          "style": {
+            "type": "string",
+            "description": "歌曲风格"
+          },
+          "releaseTime": {
+            "type": "string",
+            "description": "歌曲发行时间"
+          }
+        }
+      },
+      "SongUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "songId": {
+            "type": "integer",
+            "description": "歌曲 id",
+            "format": "int64"
+          },
+          "artistId": {
+            "type": "integer",
+            "description": "歌手 id",
+            "format": "int64"
+          },
+          "songName": {
+            "type": "string",
+            "description": "歌名"
+          },
+          "album": {
+            "type": "string",
+            "description": "专辑"
+          },
+          "style": {
+            "type": "string",
+            "description": "歌曲风格"
+          },
+          "releaseTime": {
+            "type": "string",
+            "description": "歌曲发行时间"
+          }
+        }
+      },
+      "ResultLong": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "type": "integer",
+            "description": "响应数据",
+            "format": "int64"
+          }
+        }
+      },
+      "Playlist": {
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "type": "integer",
+            "description": "歌单 id",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "description": "歌单标题"
+          },
+          "coverUrl": {
+            "type": "string",
+            "description": "歌单封面"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌单简介"
+          },
+          "style": {
+            "type": "string",
+            "description": "歌单风格"
+          }
+        }
+      },
+      "PageResultPlaylist": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Playlist",
+              "description": "<p>\n\n</p>"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultPlaylist": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultPlaylist",
+            "description": "响应数据"
+          }
+        }
+      },
+      "PlaylistAddDTO": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "歌单标题"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌单简介"
+          },
+          "style": {
+            "type": "string",
+            "description": "歌单风格"
+          }
+        }
+      },
+      "PlaylistUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "type": "integer",
+            "description": "歌单 id",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "description": "歌单标题"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌单简介"
+          },
+          "style": {
+            "type": "string",
+            "description": "歌单风格"
+          }
+        }
+      },
+      "ArtistDTO": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手姓名"
+          },
+          "gender": {
+            "type": "integer",
+            "description": "歌手性别：0-男，1-女"
+          },
+          "area": {
+            "type": "string",
+            "description": "歌手所处地区"
+          }
+        },
+        "required": [
+          "pageNum",
+          "pageSize"
+        ]
+      },
+      "PageResultArtistVO": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArtistVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.ArtistVO"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultArtistVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultArtistVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "ArtistVO": {
+        "type": "object",
+        "properties": {
+          "artistId": {
+            "type": "integer",
+            "description": "歌手 id",
+            "format": "int64"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手姓名"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "歌手头像"
+          }
+        }
+      },
+      "ResultListArtistVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArtistVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.ArtistVO"
+            },
+            "description": "响应数据"
+          }
+        }
+      },
+      "ArtistDetailVO": {
+        "type": "object",
+        "properties": {
+          "artistId": {
+            "type": "integer",
+            "description": "歌手 id",
+            "format": "int64"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手姓名"
+          },
+          "gender": {
+            "type": "integer",
+            "description": "歌手性别：0-男，1-女"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "歌手头像"
+          },
+          "birth": {
+            "type": "string",
+            "description": "歌手出生日期"
+          },
+          "area": {
+            "type": "string",
+            "description": "歌手所处地区"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌手简介"
+          },
+          "songs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SongVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.SongVO"
+            },
+            "description": "歌曲列表"
+          }
+        }
+      },
+      "ResultArtistDetailVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ArtistDetailVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "Banner": {
+        "type": "object",
+        "properties": {
+          "bannerId": {
+            "type": "integer",
+            "description": "轮播图 id",
+            "format": "int64"
+          },
+          "bannerUrl": {
+            "type": "string",
+            "description": "轮播图 url"
+          },
+          "bannerStatus": {
+            "type": "string",
+            "description": "轮播图状态：0-启用，1-禁用",
+            "enum": [
+              "ENABLE",
+              "DISABLE"
+            ]
+          }
+        }
+      },
+      "PageResultBanner": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Banner",
+              "description": "<p>\n\n</p>"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultBanner": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultBanner",
+            "description": "响应数据"
+          }
+        }
+      },
+      "BannerDTO": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量"
+          },
+          "bannerStatus": {
+            "type": "string",
+            "description": "轮播图状态：0-启用，1-禁用",
+            "enum": [
+              "ENABLE",
+              "DISABLE"
+            ]
+          }
+        },
+        "required": [
+          "pageNum",
+          "pageSize"
+        ]
+      },
+      "BannerVO": {
+        "type": "object",
+        "properties": {
+          "bannerId": {
+            "type": "integer",
+            "description": "轮播图 id",
+            "format": "int64"
+          },
+          "bannerUrl": {
+            "type": "string",
+            "description": "轮播图 url"
+          }
+        }
+      },
+      "ResultListBannerVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BannerVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.BannerVO"
+            },
+            "description": "响应数据"
+          }
+        }
+      },
+      "CommentSongDTO": {
+        "type": "object",
+        "properties": {
+          "songId": {
+            "type": "integer",
+            "description": "歌曲id",
+            "format": "int64"
+          },
+          "content": {
+            "type": "string",
+            "description": "评论内容"
+          }
+        }
+      },
+      "CommentPlaylistDTO": {
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "type": "integer",
+            "description": "歌单id",
+            "format": "int64"
+          },
+          "content": {
+            "type": "string",
+            "description": "评论内容"
+          }
+        }
+      },
+      "Feedback": {
+        "type": "object",
+        "properties": {
+          "feedbackId": {
+            "type": "integer",
+            "description": "反馈 id",
+            "format": "int64"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户 id",
+            "format": "int64"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "反馈内容"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间"
+          }
+        }
+      },
+      "PageResultFeedback": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feedback",
+              "description": "<p>\n\n</p>"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultFeedback": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultFeedback",
+            "description": "响应数据"
+          }
+        }
+      },
+      "FeedbackDTO": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量"
+          },
+          "keyword": {
+            "type": "string",
+            "description": "反馈内容关键字"
+          }
+        },
+        "required": [
+          "pageNum",
+          "pageSize"
+        ]
+      },
+      "ResultListPlaylistVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlaylistVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.PlaylistVO"
+            },
+            "description": "响应数据"
+          }
+        }
+      },
+      "PlaylistDetailVO": {
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "type": "integer",
+            "description": "歌单 id",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "description": "歌单标题"
+          },
+          "coverUrl": {
+            "type": "string",
+            "description": "歌单封面"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "歌单简介"
+          },
+          "songs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SongVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.SongVO"
+            },
+            "description": "歌曲列表"
+          },
+          "likeStatus": {
+            "type": "integer",
+            "description": "喜欢状态\n0：默认\n1：喜欢"
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CommentVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.CommentVO"
+            },
+            "description": "评论列表"
+          }
+        }
+      },
+      "ResultPlaylistDetailVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PlaylistDetailVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "CommentVO": {
+        "type": "object",
+        "properties": {
+          "commentId": {
+            "type": "integer",
+            "description": "评论 id",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string",
+            "description": "用户名"
+          },
+          "userAvatar": {
+            "type": "string",
+            "description": "用户头像"
+          },
+          "content": {
+            "type": "string",
+            "description": "评论内容"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "评论时间"
+          },
+          "likeCount": {
+            "type": "integer",
+            "description": "点赞数量",
+            "format": "int64"
+          }
+        }
+      },
+      "ResultListSongVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SongVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.SongVO"
+            },
+            "description": "响应数据"
+          }
+        }
+      },
+      "SongDetailVO": {
+        "type": "object",
+        "properties": {
+          "songId": {
+            "type": "integer",
+            "description": "歌曲 id",
+            "format": "int64"
+          },
+          "songName": {
+            "type": "string",
+            "description": "歌名"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手"
+          },
+          "album": {
+            "type": "string",
+            "description": "专辑"
+          },
+          "lyric": {
+            "type": "string",
+            "description": "歌词"
+          },
+          "duration": {
+            "type": "string",
+            "description": "歌曲时长"
+          },
+          "coverUrl": {
+            "type": "string",
+            "description": "歌曲封面 url"
+          },
+          "audioUrl": {
+            "type": "string",
+            "description": "歌曲 url"
+          },
+          "releaseTime": {
+            "type": "string",
+            "description": "歌曲发行时间"
+          },
+          "likeStatus": {
+            "type": "integer",
+            "description": "喜欢状态\n0：默认\n1：喜欢"
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CommentVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.CommentVO"
+            },
+            "description": "评论列表"
+          }
+        }
+      },
+      "ResultSongDetailVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SongDetailVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "UserDTO": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "用户 id",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string",
+            "description": "用户名\n用户名格式：4-16位字符（字母、数字、下划线、连字符）",
+            "pattern": "^[a-zA-Z0-9_-]{4,16}$"
+          },
+          "phone": {
+            "type": "string",
+            "description": "用户手机号\n手机号格式：1开头，11位数字",
+            "pattern": "^1[3456789]\\d{9}$"
+          },
+          "email": {
+            "type": "string",
+            "description": "用户邮箱",
+            "format": "email"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "用户简介\n用户简介格式：100 字以内",
+            "pattern": "^.{0,100}$"
+          }
+        },
+        "required": [
+          "username",
+          "email"
+        ]
+      },
+      "UserRegisterDTO": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "用户名\n用户名格式：4-16位字符（字母、数字、下划线、连字符）",
+            "pattern": "^[a-zA-Z0-9_-]{4,16}$"
+          },
+          "password": {
+            "type": "string",
+            "description": "用户密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          },
+          "email": {
+            "type": "string",
+            "description": "用户邮箱",
+            "format": "email"
+          },
+          "verificationCode": {
+            "type": "string",
+            "description": "验证码\n验证码格式：6位字符（大小写字母、数字）",
+            "pattern": "^[0-9a-zA-Z]{6}$"
+          }
+        },
+        "required": [
+          "username",
+          "password",
+          "email",
+          "verificationCode"
+        ]
+      },
+      "UserLoginDTO": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "用户邮箱",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "description": "用户密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "UserVO": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "用户 id",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string",
+            "description": "用户名"
+          },
+          "phone": {
+            "type": "string",
+            "description": "用户手机号"
+          },
+          "email": {
+            "type": "string",
+            "description": "用户邮箱"
+          },
+          "userAvatar": {
+            "type": "string",
+            "description": "用户头像"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "用户简介"
+          }
+        }
+      },
+      "ResultUserVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/UserVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "UserPasswordDTO": {
+        "type": "object",
+        "properties": {
+          "oldPassword": {
+            "type": "string",
+            "description": "旧密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          },
+          "newPassword": {
+            "type": "string",
+            "description": "新密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          },
+          "repeatPassword": {
+            "type": "string",
+            "description": "确认密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          }
+        },
+        "required": [
+          "oldPassword",
+          "newPassword",
+          "repeatPassword"
+        ]
+      },
+      "UserResetPasswordDTO": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "用户邮箱",
+            "format": "email"
+          },
+          "verificationCode": {
+            "type": "string",
+            "description": "验证码\n验证码格式：6位字符（大小写字母、数字）",
+            "pattern": "^[0-9a-zA-Z]{6}$"
+          },
+          "newPassword": {
+            "type": "string",
+            "description": "新密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          },
+          "repeatPassword": {
+            "type": "string",
+            "description": "确认密码\n密码格式：8-18 位数字、字母、符号的任意两种组合",
+            "pattern": "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{8,18}$"
+          }
+        },
+        "required": [
+          "email",
+          "verificationCode",
+          "newPassword",
+          "repeatPassword"
+        ]
+      },
+      "PlaylistDTO": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量"
+          },
+          "title": {
+            "type": "string",
+            "description": "歌单标题"
+          },
+          "style": {
+            "type": "string",
+            "description": "歌单风格"
+          }
+        },
+        "required": [
+          "pageNum",
+          "pageSize"
+        ]
+      },
+      "": {
+        "type": "object",
+        "properties": {}
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/1",
+            "description": "响应数据"
+          }
+        }
+      },
+      "SongVO": {
+        "type": "object",
+        "properties": {
+          "songId": {
+            "type": "integer",
+            "description": "歌曲 id",
+            "format": "int64"
+          },
+          "songName": {
+            "type": "string",
+            "description": "歌名"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手"
+          },
+          "album": {
+            "type": "string",
+            "description": "专辑"
+          },
+          "duration": {
+            "type": "string",
+            "description": "歌曲时长"
+          },
+          "coverUrl": {
+            "type": "string",
+            "description": "歌曲封面 url"
+          },
+          "audioUrl": {
+            "type": "string",
+            "description": "歌曲 url"
+          },
+          "likeStatus": {
+            "type": "integer",
+            "description": "喜欢状态\n0：默认\n1：喜欢"
+          },
+          "releaseTime": {
+            "type": "string",
+            "description": "歌曲发行时间"
+          }
+        }
+      },
+      "PageResultPlaylistVO": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlaylistVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.PlaylistVO"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultPlaylistVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultPlaylistVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "PlaylistVO": {
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "type": "integer",
+            "description": "歌单 id",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "description": "歌单标题"
+          },
+          "coverUrl": {
+            "type": "string",
+            "description": "歌单封面"
+          }
+        }
+      },
+      "PageResultSongVO": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SongVO",
+              "description": "cn.edu.seig.vibemusic.model.vo.SongVO"
+            },
+            "description": "当前页数据集合"
+          }
+        }
+      },
+      "ResultPageResultSongVO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码  0-成功  1-失败"
+          },
+          "message": {
+            "type": "string",
+            "description": "提示信息"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResultSongVO",
+            "description": "响应数据"
+          }
+        }
+      },
+      "SongDTO": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量"
+          },
+          "songName": {
+            "type": "string",
+            "description": "歌曲名"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "歌手"
+          },
+          "album": {
+            "type": "string",
+            "description": "专辑"
+          }
+        },
+        "required": [
+          "pageNum",
+          "pageSize"
+        ]
+      }
+    },
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": []
+}
