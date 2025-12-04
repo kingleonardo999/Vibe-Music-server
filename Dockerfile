@@ -6,14 +6,14 @@ FROM golang:1.24-alpine AS builder
 # 设置必要的环境变量
 # CGO_ENABLED=0 禁用 CGO，以构建静态链接的二进制文件
 # GOOS=linux 指定目标操作系统
-ENV CGO_ENABLED=0 GOOS=linux GO111MODULE=on
+ENV CGO_ENABLED=0 GOOS=linux GO111MODULE=on GOPROXY=https://goproxy.cn,direct
 
 # 设置工作目录
 WORKDIR /app
 
 # 复制 go.mod 和 go.sum 文件
 # 这样做可以利用 Docker 的层缓存机制，只有在依赖变更时才重新下载
-COPY ../go.mod ../go.sum ./
+COPY go.mod ../go.sum ./
 RUN go mod download
 
 # 复制所有源代码到工作目录
