@@ -1,0 +1,17 @@
+.idea/
+
+logs
+
+config/config.yml
+
+Dockerfile
+
+*.exe
+
+.gitignore
+
+coverage.out
+*.out
+
+.vscode/
+.env
