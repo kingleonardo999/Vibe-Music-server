@@ -1,7 +1,7 @@
 # ---- Build Stage ----
 # 使用官方的 Go 镜像作为构建环境
 # 使用 alpine 版本以保持镜像体积较小
-FROM golang:1.21-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 # 设置必要的环境变量
 # CGO_ENABLED=0 禁用 CGO，以构建静态链接的二进制文件
